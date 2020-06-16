@@ -1,28 +1,37 @@
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as React from 'react';
+import { globalTheme } from 'styles/theme';
 import {
   Card,
-  InfoBox,
-  TitleBox,
-  PillBox,
-  Pill,
-  PillText,
-  ImageBox,
-  PokemonImage,
   IconBox,
+  ImageBox,
+  InfoBox,
+  Pill,
+  PillBox,
+  PillText,
+  PokemonImage,
+  TitleBox,
 } from './styles';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { globalTheme } from 'styles/theme';
 
 type Pokemon = {
   id: number;
   name: string;
   types: any;
+  navigation: any;
 };
 
-export const MinimalCard: React.SFC<Pokemon> = ({ id, name, types }) => {
+export const MinimalCard: React.SFC<Pokemon> = ({
+  id,
+  name,
+  types,
+  navigation,
+}) => {
   const predominantType = types[0].type.name;
   return (
-    <Card type={predominantType}>
+    <Card
+      type={predominantType}
+      onPress={() => navigation.navigate('Details', { name, predominantType })}
+    >
       <IconBox>
         <MaterialCommunityIcons
           name="pokeball"

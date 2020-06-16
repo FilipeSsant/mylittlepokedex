@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Title, PokemonsBox, SearchBox, ButtonBox } from './styles';
-import { Container, LoadingContainer } from 'styles/globalComponents';
-import { MinimalCard } from 'components/MinimalCard';
 import { getAll } from 'api/pokemon.db';
-import { Input } from 'components/Input';
 import { ButtonStyled } from 'components/Button';
+import { Input } from 'components/Input';
 import { LoadingPokeball } from 'components/LoadingPokeball';
+import { MinimalCard } from 'components/MinimalCard';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Container, LoadingContainer } from 'styles/globalComponents';
+import { ButtonBox, PokemonsBox, SearchBox, Title } from './styles';
 
-export const Main = () => {
+export const Main = ({ navigation }) => {
   const [pokemons, setPokemons] = useState<any>([]);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -46,7 +46,14 @@ export const Main = () => {
 
   const renderCard = ({ item, index }) => {
     const pokemonId = index + 1;
-    return <MinimalCard id={pokemonId} name={item.name} types={item.types} />;
+    return (
+      <MinimalCard
+        id={pokemonId}
+        name={item.name}
+        types={item.types}
+        navigation={navigation}
+      />
+    );
   };
 
   const footerComponent = () => {
