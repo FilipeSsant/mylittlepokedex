@@ -73,9 +73,3 @@ ios/zemopay-tvOSTests/
 ios/zemopay.xcodeproj/xcuserdata/
 ios/zemopay.xcworkspace/xcuserdata/
 
-!android/app/build.gradle
-!android/app/settings.gradle
-!android/app/src/main/java/com/mylittlepokedex/
-!ios/mylittlepokedex.xcodeproj/
-!android/app/src/main/res/*
-!android/app/src/main/assets/fonts/*
