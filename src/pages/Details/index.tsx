@@ -1,7 +1,10 @@
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import hexToRgba from 'hex-to-rgba';
 import React, { useEffect } from 'react';
+import { StatusBar } from 'react-native';
 import { Container } from 'styles/globalComponents';
 import { globalTheme } from 'styles/theme';
+import { BackClickable } from './styles';
 
 type DetailsProps = {
   route: any;
@@ -15,8 +18,6 @@ export const Details: React.SFC<DetailsProps> = ({
   const { name, predominantType } = params;
   useEffect(() => {
     navigation.setOptions({
-      title: name,
-      headerTintColor: globalTheme.black0D,
       headerStyle: {
         backgroundColor: hexToRgba(
           globalTheme.pokemon.type[predominantType],
@@ -25,8 +26,31 @@ export const Details: React.SFC<DetailsProps> = ({
         elevation: 0,
         shadowOpacity: 0,
       },
+      headerLeft: () => {
+        return (
+          <BackClickable onPress={() => navigation.goBack()}>
+            <MaterialCommunityIcons
+              name="chevron-left"
+              color={globalTheme.whiteFA}
+              size={35}
+            />
+          </BackClickable>
+        );
+      },
     });
   }, []);
 
-  return <Container backgroundType={predominantType}></Container>;
+  return (
+    <>
+      <StatusBar
+        backgroundColor={hexToRgba(
+          globalTheme.pokemon.type[predominantType],
+          0.9
+        )}
+        barStyle="light-content"
+        showHideTransition="slide "
+      />
+      <Container backgroundType={predominantType}></Container>
+    </>
+  );
 };

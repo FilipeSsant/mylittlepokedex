@@ -20,7 +20,7 @@ type Pokemon = {
   navigation: any;
 };
 
-export const MinimalCard: React.SFC<Pokemon> = ({
+export const MinimalCard: React.memo<Pokemon> = ({
   id,
   name,
   types,

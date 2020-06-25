@@ -35,13 +35,12 @@ export const Main = ({ navigation }) => {
   const resetAll = async () => {
     setPokemons([]);
     setOffset(1);
-    setLimit(limitDefault);
   };
 
   const loadMorePokemons = async () => {
-    await setOffset(limit);
+    await setOffset(limit + 2);
     await setLimit(limit + limitDefault);
-    await getAllPokemons(limit, limit + limitDefault);
+    await getAllPokemons(limit + 2, limit + limitDefault);
   };
 
   const renderCard = ({ item, index }) => {
