@@ -3,7 +3,7 @@ const defaultFontName = 'OpenSans';
 export const globalTheme = {
   primary: '#5693f5',
   background: '#FAFAFA',
-  black0D: '#0d0d0d',
+  defaultFont: '#0d0d0d',
   whiteFA: '#FAFAFA',
   grayF2: '#f2f2f2',
   grayD1: '#d1d1d1',

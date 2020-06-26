@@ -1,10 +1,19 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import hexToRgba from 'hex-to-rgba';
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { StatusBar } from 'react-native';
 import { Container } from 'styles/globalComponents';
 import { globalTheme } from 'styles/theme';
-import { BackClickable } from './styles';
+import {
+  BackClickable,
+  DetailsBody,
+  DetailsHeader,
+  PokemonName,
+  PillTypeBox,
+  Pill,
+  PillText,
+  DetailsWrapper,
+} from './styles';
 
 type DetailsProps = {
   route: any;
@@ -15,8 +24,10 @@ export const Details: React.SFC<DetailsProps> = ({
   navigation,
   route: { params },
 }) => {
-  const { name, predominantType } = params;
-  useEffect(() => {
+  const { predominantType } = params;
+  const { name, types } = params.pokemon;
+
+  const setHeaderConfiguration = useCallback(async () => {
     navigation.setOptions({
       headerStyle: {
         backgroundColor: hexToRgba(
@@ -38,6 +49,11 @@ export const Details: React.SFC<DetailsProps> = ({
         );
       },
     });
+  }, [navigation]);
+
+  useEffect(() => {
+    setHeaderConfiguration();
+    console.log('params', params.pokemon);
   }, []);
 
   return (
@@ -50,7 +66,22 @@ export const Details: React.SFC<DetailsProps> = ({
         barStyle="light-content"
         showHideTransition="slide "
       />
-      <Container backgroundType={predominantType}></Container>
+      <Container backgroundType={predominantType} noPadding>
+        <DetailsBody>
+          <DetailsHeader>
+            <PokemonName>{name}</PokemonName>
+            <PillTypeBox>
+              {types &&
+                types.map((obj) => (
+                  <Pill type={predominantType} key={`${name}${obj.type.name}`}>
+                    <PillText>{obj.type.name}</PillText>
+                  </Pill>
+                ))}
+            </PillTypeBox>
+          </DetailsHeader>
+          <DetailsWrapper />
+        </DetailsBody>
+      </Container>
     </>
   );
 };

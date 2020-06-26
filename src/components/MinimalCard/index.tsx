@@ -22,15 +22,17 @@ type Pokemon = {
 
 export const MinimalCard: React.memo<Pokemon> = ({
   id,
-  name,
-  types,
+  pokemon,
   navigation,
 }) => {
+  const { types, name } = pokemon;
   const predominantType = types[0].type.name;
   return (
     <Card
       type={predominantType}
-      onPress={() => navigation.navigate('Details', { name, predominantType })}
+      onPress={() =>
+        navigation.navigate('Details', { pokemon, predominantType })
+      }
     >
       <IconBox>
         <MaterialCommunityIcons

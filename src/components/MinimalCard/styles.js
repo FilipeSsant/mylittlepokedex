@@ -48,7 +48,7 @@ export const PillText = styled.Text`
 export const ImageBox = styled.View`
   flex: 1;
   justify-content: flex-end;
-  align-items: flex-end
+  align-items: flex-end;
   padding: ${widthPercentageToDp(2)}px;
 `;
 

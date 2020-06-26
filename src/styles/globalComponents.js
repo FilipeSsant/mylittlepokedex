@@ -1,5 +1,5 @@
 import hexToRgba from 'hex-to-rgba';
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { widthPercentageToDp } from 'utils/percentageToDp';
 
 export const Container = styled.View`
@@ -9,6 +9,11 @@ export const Container = styled.View`
       ? hexToRgba(theme.pokemon.type[backgroundType], 0.9)
       : theme.background};
   padding: 0 ${widthPercentageToDp(5)}px;
+  ${({ noPadding }) =>
+    noPadding &&
+    css`
+      padding: 0;
+    `}
 `;
 
 export const LoadingContainer = styled.View`

@@ -46,12 +46,7 @@ export const Main = ({ navigation }) => {
   const renderCard = ({ item, index }) => {
     const pokemonId = index + 1;
     return (
-      <MinimalCard
-        id={pokemonId}
-        name={item.name}
-        types={item.types}
-        navigation={navigation}
-      />
+      <MinimalCard id={pokemonId} pokemon={item} navigation={navigation} />
     );
   };
 

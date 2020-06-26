@@ -25,7 +25,7 @@ export const ButtonStyled: React.SFC<Props> = ({
       case 'light':
         return globalTheme.whiteFA;
       case 'dark':
-        return globalTheme.black0D;
+        return globalTheme.defaultFont;
       default:
         return globalTheme.whiteFA;
     }

@@ -9,7 +9,7 @@ const checkFontType = (theme, type) => {
     case 'light':
       return theme.whiteFA;
     case 'dark':
-      return theme.black0D;
+      return theme.defaultFont;
     default:
       return theme.whiteFA;
   }
