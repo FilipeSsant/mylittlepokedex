@@ -7,6 +7,7 @@ export const globalTheme = {
   whiteFA: '#FAFAFA',
   grayF2: '#f2f2f2',
   grayD1: '#d1d1d1',
+  grayC7: '#c7c8c8',
   font: {
     light: `${defaultFontName}-Light`,
     semiBold: `${defaultFontName}-SemiBold`,

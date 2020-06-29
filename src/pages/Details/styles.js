@@ -1,9 +1,9 @@
+import hexToRgba from 'hex-to-rgba';
 import styled from 'styled-components/native';
 import {
-  widthPercentageToDp,
   heightPercentageToDp,
+  widthPercentageToDp,
 } from 'utils/percentageToDp';
-import hexToRgba from 'hex-to-rgba';
 
 export const BackClickable = styled.TouchableOpacity`
   margin-left: ${widthPercentageToDp(2)}px;
@@ -40,14 +40,8 @@ export const Pill = styled.View`
 
 export const PillText = styled.Text`
   text-align: center;
+  font-size: ${widthPercentageToDp(3.5)}px;
   padding: ${widthPercentageToDp(2)}px;
   text-transform: capitalize;
   color: ${({ theme }) => theme.whiteFA};
-`;
-
-export const DetailsWrapper = styled.View`
-  flex: 1;
-  background-color: ${({ theme }) => theme.background};
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
 `;

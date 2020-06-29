@@ -1,18 +1,18 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import hexToRgba from 'hex-to-rgba';
-import React, { useEffect, useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import { Container } from 'styles/globalComponents';
 import { globalTheme } from 'styles/theme';
+import { BottomDrawer } from './BottomDrawer';
 import {
   BackClickable,
   DetailsBody,
   DetailsHeader,
-  PokemonName,
-  PillTypeBox,
   Pill,
   PillText,
-  DetailsWrapper,
+  PillTypeBox,
+  PokemonName,
 } from './styles';
 
 type DetailsProps = {
@@ -64,7 +64,6 @@ export const Details: React.SFC<DetailsProps> = ({
           0.9
         )}
         barStyle="light-content"
-        showHideTransition="slide "
       />
       <Container backgroundType={predominantType} noPadding>
         <DetailsBody>
@@ -72,14 +71,14 @@ export const Details: React.SFC<DetailsProps> = ({
             <PokemonName>{name}</PokemonName>
             <PillTypeBox>
               {types &&
-                types.map((obj) => (
+                types.map((obj, index) => (
                   <Pill type={predominantType} key={`${name}${obj.type.name}`}>
                     <PillText>{obj.type.name}</PillText>
                   </Pill>
                 ))}
             </PillTypeBox>
           </DetailsHeader>
-          <DetailsWrapper />
+          <BottomDrawer pokemonData={params} />
         </DetailsBody>
       </Container>
     </>
