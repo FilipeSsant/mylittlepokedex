@@ -6,7 +6,21 @@ import {
   widthPercentageToDp,
 } from 'utils/percentageToDp';
 
+export const PokemonImageBox = styled.View`
+  top: ${heightPercentageToDp(-21)}px;
+  align-self: center;
+  position: absolute;
+  width: 100%;
+  height: ${heightPercentageToDp(25)}px;
+`;
+
+export const PokemonImage = styled.Image`
+  width: 100%;
+  height: 100%;
+`;
+
 export const DetailsDrawer = styled(Animated.View)`
+  position: relative;
   flex: 1;
   background-color: ${({ theme }) => theme.background};
   border-top-left-radius: 30px;

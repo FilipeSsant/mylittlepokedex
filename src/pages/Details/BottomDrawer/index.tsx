@@ -2,7 +2,15 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 import Animated, { Easing } from 'react-native-reanimated';
 import { heightPercentageToDp } from 'utils/percentageToDp';
-import { DetailsDrawer, DrawerViewPager, Tab, Tabs, TabText } from './styles';
+import {
+  DetailsDrawer,
+  DrawerViewPager,
+  PokemonImage,
+  PokemonImageBox,
+  Tab,
+  Tabs,
+  TabText,
+} from './styles';
 
 type Props = {
   pokemonData: any;
@@ -10,6 +18,7 @@ type Props = {
 
 export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
   const { predominantType } = pokemonData;
+  const { uri } = pokemonData.pokemon;
 
   const [drawerAnim] = useState(new Animated.Value(0));
   const [actualPageIndex, onChangeDrawerPage] = useState(0);
@@ -68,6 +77,9 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
 
   return (
     <DetailsDrawer style={drawerStyle}>
+      <PokemonImageBox>
+        <PokemonImage resizeMode="contain" source={{ uri }} />
+      </PokemonImageBox>
       <Tabs>
         {tabsInfo.map((tab, index) => (
           <Tab key={tab.id}>

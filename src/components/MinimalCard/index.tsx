@@ -31,7 +31,13 @@ export const MinimalCard: React.memo<Pokemon> = ({
     <Card
       type={predominantType}
       onPress={() =>
-        navigation.navigate('Details', { pokemon, predominantType })
+        navigation.navigate('Details', {
+          pokemon: {
+            ...pokemon,
+            uri: `https://pokeres.bastionbot.org/images/pokemon/${id}.png`,
+          },
+          predominantType,
+        })
       }
     >
       <IconBox>
