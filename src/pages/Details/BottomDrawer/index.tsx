@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 import Animated, { Easing } from 'react-native-reanimated';
 import { heightPercentageToDp } from 'utils/percentageToDp';
+import { AboutPage } from './AboutPage';
 import {
   DetailsDrawer,
   DrawerViewPager,
@@ -96,7 +97,7 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
       </Tabs>
       <DrawerViewPager onPageSelected={onPageSelected}>
         <View key="1">
-          <Text>About page</Text>
+          <AboutPage />
         </View>
         <View key="2">
           <Text>Base Stats page</Text>

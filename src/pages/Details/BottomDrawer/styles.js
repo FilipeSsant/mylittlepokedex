@@ -1,7 +1,7 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ViewPager from '@react-native-community/viewpager';
 import Animated from 'react-native-reanimated';
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { globalTheme } from 'styles/theme';
 import {
   heightPercentageToDp,
@@ -43,7 +43,6 @@ export const DetailsDrawer = styled(Animated.View)`
 
 export const DrawerViewPager = styled(ViewPager)`
   flex: 1;
-  margin: 0 ${widthPercentageToDp(5)}px 0 ${widthPercentageToDp(5)}px;
 `;
 
 export const Tabs = styled.View`
@@ -60,4 +59,23 @@ export const TabText = styled.Text`
   color: ${({ isActive, theme, pokemonType }) =>
     isActive ? theme.pokemon.type[pokemonType] : theme.grayC7};
   font-family: ${({ theme }) => theme.font.semiBold};
+`;
+
+// texts
+export const DetailsText = styled.Text`
+  font-size: ${widthPercentageToDp(3.5)}px;
+  text-transform: capitalize;
+  color: ${({ theme }) => theme.defaultFont};
+  ${({ topic }) =>
+    topic &&
+    css`
+      width: ${widthPercentageToDp(30)}px;
+      font-family: 'OpenSans-Bold';
+    `}
+`;
+
+export const DetailsTitle = styled.Text`
+  font-size: ${widthPercentageToDp(4.5)}px;
+  color: ${({ theme }) => theme.defaultFont};
+  font-family: 'OpenSans-Bold';
 `;
