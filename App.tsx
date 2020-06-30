@@ -7,7 +7,9 @@ import { Routes } from 'routes';
 import { ThemeProvider } from 'styled-components/native';
 import { globalTheme } from 'styles/theme';
 
-export const App: React.SFC<> = () => {
+type Props = any;
+
+export const App: React.SFC<Props> = () => {
   ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
   let [fontsLoaded] = useFonts({
     'OpenSans-Regular': require('./assets/fonts/OpenSans-Regular.ttf'),

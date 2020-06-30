@@ -55,7 +55,12 @@ export const Tabs = styled.View`
 
 export const Tab = styled.TouchableOpacity``;
 
-export const TabText = styled.Text`
+type TabTextProps = {
+  isActive?: boolean;
+  pokemonType?: string;
+};
+
+export const TabText = styled.Text<TabTextProps>`
   color: ${({ isActive, theme, pokemonType }) =>
     isActive ? theme.pokemon.type[pokemonType] : theme.grayC7};
   font-family: ${({ theme }) => theme.font.semiBold};

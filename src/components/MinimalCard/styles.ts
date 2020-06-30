@@ -1,11 +1,15 @@
+import hexToRgba from 'hex-to-rgba';
 import styled from 'styled-components/native';
 import {
-  widthPercentageToDp,
   heightPercentageToDp,
+  widthPercentageToDp,
 } from 'utils/percentageToDp';
-import hexToRgba from 'hex-to-rgba';
 
-export const Card = styled.TouchableOpacity.attrs({ activeOpacity: 0.7 })`
+type BackgroundColorProps = {
+  type?: string;
+};
+
+export const Card = styled.TouchableOpacity<BackgroundColorProps>`
   background-color: ${({ theme, type }) =>
     hexToRgba(theme.pokemon.type[type], 0.9)};
   margin: ${widthPercentageToDp(1)}px;
@@ -32,7 +36,7 @@ export const PillBox = styled.View`
   padding-top: ${heightPercentageToDp(1)}px;
 `;
 
-export const Pill = styled.View`
+export const Pill = styled.View<BackgroundColorProps>`
   margin: ${heightPercentageToDp(0.3)}px 0;
   border-radius: 100px;
   background-color: ${({ theme, type }) =>

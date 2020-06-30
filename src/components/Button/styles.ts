@@ -1,8 +1,10 @@
-import styled, { css } from 'styled-components/native';
-import {
-  widthPercentageToDp,
-  heightPercentageToDp,
-} from 'utils/percentageToDp';
+import styled from 'styled-components/native';
+import { widthPercentageToDp } from 'utils/percentageToDp';
+import { BaseButtonProps } from '.';
+
+type TextButtonProps = {
+  fontType?: string;
+};
 
 const checkFontType = (theme, type) => {
   switch (type) {
@@ -15,7 +17,7 @@ const checkFontType = (theme, type) => {
   }
 };
 
-export const BaseButton = styled.TouchableOpacity`
+export const BaseButton = styled.TouchableOpacity<BaseButtonProps>`
   background-color: ${({ theme, type, disabled }) => {
     if (disabled) return theme.grayD1;
     return type ? theme[type] : theme.primary;
@@ -26,7 +28,7 @@ export const BaseButton = styled.TouchableOpacity`
   border-radius: 6px;
 `;
 
-export const TextButton = styled.Text`
+export const TextButton = styled.Text<TextButtonProps>`
   font-size: ${widthPercentageToDp(4)}px;
   color: ${({ theme, fontType }) => checkFontType(theme, fontType)};
 `;

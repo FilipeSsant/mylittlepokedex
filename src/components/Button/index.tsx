@@ -1,9 +1,9 @@
-import React, { useState, useMemo, useCallback } from 'react';
-import { BaseButton, TextButton } from './styles';
 import { LoadingPokeball } from 'components/LoadingPokeball';
+import React from 'react';
 import { globalTheme } from 'styles/theme';
+import { BaseButton, TextButton } from './styles';
 
-type Props = {
+export type BaseButtonProps = {
   title: string;
   onPress: any;
   type?: string;
@@ -12,7 +12,7 @@ type Props = {
   disabled?: boolean;
 };
 
-export const ButtonStyled: React.SFC<Props> = ({
+export const ButtonStyled: React.SFC<BaseButtonProps> = ({
   title,
   type,
   fontColor,

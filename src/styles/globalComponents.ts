@@ -2,7 +2,12 @@ import hexToRgba from 'hex-to-rgba';
 import styled, { css } from 'styled-components/native';
 import { widthPercentageToDp } from 'utils/percentageToDp';
 
-export const Container = styled.View`
+type ContainerProps = {
+  backgroundType?: string;
+  noPadding?: boolean;
+};
+
+export const Container = styled.View<ContainerProps>`
   flex: 1;
   background-color: ${({ backgroundType, theme }) =>
     backgroundType

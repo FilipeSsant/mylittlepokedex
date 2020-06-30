@@ -29,6 +29,7 @@ export const MinimalCard: React.memo<Pokemon> = ({
   const predominantType = types[0].type.name;
   return (
     <Card
+      activeOpacity={0.7}
       type={predominantType}
       onPress={() =>
         navigation.navigate('Details', {
