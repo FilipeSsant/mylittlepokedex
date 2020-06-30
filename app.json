@@ -1,17 +1,11 @@
 {
-  "name": "my_little_pokedex",
-  "displayName": "my_little_pokedex",
+  "name": "My Little Pokedex",
+  "displayName": "My Little Pokedex",
   "expo": {
-    "name": "my_little_pokedex",
-    "slug": "expo-template-bare",
+    "name": "My Little Pokedex",
+    "slug": "my-little-pokedex",
     "version": "1.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "platforms": ["ios", "android"],
+    "assetBundlePatterns": ["**/*"]
   }
 }

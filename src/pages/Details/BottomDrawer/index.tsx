@@ -5,6 +5,7 @@ import { heightPercentageToDp } from 'utils/percentageToDp';
 import {
   DetailsDrawer,
   DrawerViewPager,
+  PokeballIcon,
   PokemonImage,
   PokemonImageBox,
   Tab,
@@ -79,6 +80,7 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
     <DetailsDrawer style={drawerStyle}>
       <PokemonImageBox>
         <PokemonImage resizeMode="contain" source={{ uri }} />
+        <PokeballIcon />
       </PokemonImageBox>
       <Tabs>
         {tabsInfo.map((tab, index) => (

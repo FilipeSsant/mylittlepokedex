@@ -1,6 +1,8 @@
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ViewPager from '@react-native-community/viewpager';
 import Animated from 'react-native-reanimated';
 import styled from 'styled-components/native';
+import { globalTheme } from 'styles/theme';
 import {
   heightPercentageToDp,
   widthPercentageToDp,
@@ -14,7 +16,19 @@ export const PokemonImageBox = styled.View`
   height: ${heightPercentageToDp(25)}px;
 `;
 
+export const PokeballIcon = styled(MaterialCommunityIcons).attrs({
+  name: 'pokeball',
+  color: globalTheme.whiteFA,
+  size: 250,
+})`
+  z-index: 1;
+  position: absolute;
+  align-self: center;
+  opacity: 0.2;
+`;
+
 export const PokemonImage = styled.Image`
+  z-index: 2;
   width: 100%;
   height: 100%;
 `;
@@ -40,7 +54,7 @@ export const Tabs = styled.View`
     ${widthPercentageToDp(5)}px;
 `;
 
-export const Tab = styled.View``;
+export const Tab = styled.TouchableOpacity``;
 
 export const TabText = styled.Text`
   color: ${({ isActive, theme, pokemonType }) =>
