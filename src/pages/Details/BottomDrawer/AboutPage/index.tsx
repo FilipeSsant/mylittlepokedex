@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DetailsText, DetailsTitle } from '../styles';
 import {
   BottomContent,
@@ -9,19 +9,36 @@ import {
   PageContainer,
 } from './style';
 
-type AboutPageProps = {};
+type AboutPageProps = {
+  pokemon: any;
+};
 
-export const AboutPage: React.SFC<AboutPageProps> = () => {
+export const AboutPage: React.SFC<AboutPageProps> = ({ pokemon }) => {
+  const { height, weight, abilities } = pokemon;
+  const [pokemonAbilities, setPokemonAbilities] = useState('');
+  const pokemonHeight = height * 10;
+  const pokemonWeight = weight / 10;
+
+  React.useEffect(() => {
+    setPokemonAbilities(
+      abilities
+        .map((obj) => {
+          return obj.ability.name;
+        })
+        .join(', ')
+    );
+  }, []);
+
   return (
     <PageContainer>
       <CardWrapper>
         <CardBlock>
           <DetailsText topic>Height</DetailsText>
-          <DetailsText>2"3.6" (0.70cm)</DetailsText>
+          <DetailsText>{`${pokemonHeight}cm`}</DetailsText>
         </CardBlock>
         <CardBlock>
           <DetailsText topic>Weight</DetailsText>
-          <DetailsText>t5.2 lbs (6.9kg)</DetailsText>
+          <DetailsText>{`${pokemonWeight}kg`}</DetailsText>
         </CardBlock>
       </CardWrapper>
       <BottomContent>
@@ -29,19 +46,7 @@ export const AboutPage: React.SFC<AboutPageProps> = () => {
         <InfoAboutContainer>
           <InfoAboutBlock>
             <DetailsText topic>Abilities</DetailsText>
-            <DetailsText>Overgrow, Chlorophyl</DetailsText>
-          </InfoAboutBlock>
-          <InfoAboutBlock>
-            <DetailsText topic>Species</DetailsText>
-            <DetailsText>Seed</DetailsText>
-          </InfoAboutBlock>
-          <InfoAboutBlock>
-            <DetailsText topic>Egg Groups</DetailsText>
-            <DetailsText>Monster</DetailsText>
-          </InfoAboutBlock>
-          <InfoAboutBlock>
-            <DetailsText topic>Egg Cycle</DetailsText>
-            <DetailsText>Grass</DetailsText>
+            <DetailsText>{pokemonAbilities}</DetailsText>
           </InfoAboutBlock>
         </InfoAboutContainer>
       </BottomContent>

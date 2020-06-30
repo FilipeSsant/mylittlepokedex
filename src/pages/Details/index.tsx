@@ -53,7 +53,6 @@ export const Details: React.SFC<DetailsProps> = ({
 
   useEffect(() => {
     setHeaderConfiguration();
-    console.log('params', params.pokemon);
   }, []);
 
   return (

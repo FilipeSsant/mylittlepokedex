@@ -20,7 +20,7 @@ type Props = {
 
 export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
   const { predominantType } = pokemonData;
-  const { uri } = pokemonData.pokemon;
+  const { uri, height, weight, abilities } = pokemonData.pokemon;
 
   const [drawerAnim] = useState(new Animated.Value(0));
   const [actualPageIndex, onChangeDrawerPage] = useState(0);
@@ -97,7 +97,7 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
       </Tabs>
       <DrawerViewPager onPageSelected={onPageSelected}>
         <View key="1">
-          <AboutPage />
+          <AboutPage pokemon={{ height, weight, abilities }} />
         </View>
         <View key="2">
           <Text>Base Stats page</Text>

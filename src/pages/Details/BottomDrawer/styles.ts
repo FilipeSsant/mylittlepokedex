@@ -67,7 +67,12 @@ export const TabText = styled.Text<TabTextProps>`
 `;
 
 // texts
-export const DetailsText = styled.Text`
+
+type DetailsTextProps = {
+  topic?: boolean;
+};
+
+export const DetailsText = styled.Text<DetailsTextProps>`
   font-size: ${widthPercentageToDp(3.5)}px;
   text-transform: capitalize;
   color: ${({ theme }) => theme.defaultFont};
