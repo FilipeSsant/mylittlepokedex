@@ -1,15 +1,23 @@
+import hexToRgba from 'hex-to-rgba';
 import styled from 'styled-components/native';
 import {
   heightPercentageToDp,
   widthPercentageToDp,
 } from 'utils/percentageToDp';
 
-export const PageContainer = styled.View`
+type PokemonVersionProps = {
+  version: string;
+};
+
+export const PageContainer = styled.ScrollView.attrs({
+  containerContentStyle: {
+    alignItems: 'center',
+  },
+})`
   flex: 1;
   width: 100%;
   padding: 0 ${widthPercentageToDp(5)}px;
   flex-direction: column;
-  align-items: center;
 `;
 
 export const CardWrapper = styled.View`
@@ -37,4 +45,25 @@ export const InfoAboutContainer = styled.View`
 export const InfoAboutBlock = styled.View`
   flex-direction: row;
   padding-bottom: ${heightPercentageToDp(1)}px;
+`;
+
+export const AppearsBox = styled.View`
+  margin-top: ${heightPercentageToDp(1)}px;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+export const PokemonVersion = styled.View<PokemonVersionProps>`
+  background-color: ${({ theme, version }) =>
+    hexToRgba(theme.pokemon.generation[version], 0.7)};
+  border-radius: 6px;
+  margin-right: ${widthPercentageToDp(1)}px;
+  margin-bottom: ${heightPercentageToDp(1)}px;
+  align-self: flex-start;
+`;
+
+export const PokemonVersionText = styled.Text`
+  text-transform: capitalize;
+  text-align: center;
+  padding: ${widthPercentageToDp(1)}px ${widthPercentageToDp(5)}px;
 `;
