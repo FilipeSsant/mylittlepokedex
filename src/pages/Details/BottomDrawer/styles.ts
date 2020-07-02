@@ -70,17 +70,24 @@ export const TabText = styled.Text<TabTextProps>`
 
 type DetailsTextProps = {
   topic?: boolean;
+  topicWidth?: number;
+  normalTextWidth?: number;
 };
 
 export const DetailsText = styled.Text<DetailsTextProps>`
   font-size: ${widthPercentageToDp(3.5)}px;
   text-transform: capitalize;
   color: ${({ theme }) => theme.defaultFont};
-  ${({ topic }) =>
+  ${({ topic, topicWidth }) =>
     topic &&
     css`
-      width: ${widthPercentageToDp(30)}px;
+      width: ${widthPercentageToDp(topicWidth || 30)}px;
       font-family: 'OpenSans-Bold';
+    `}
+  ${({ normalTextWidth }) =>
+    normalTextWidth &&
+    css`
+      width: ${widthPercentageToDp(normalTextWidth)}px;
     `}
 `;
 
@@ -88,4 +95,17 @@ export const DetailsTitle = styled.Text`
   font-size: ${widthPercentageToDp(4.5)}px;
   color: ${({ theme }) => theme.defaultFont};
   font-family: 'OpenSans-Bold';
+`;
+
+// shared components
+
+export const PageContainer = styled.ScrollView.attrs({
+  containerContentStyle: {
+    alignItems: 'center',
+  },
+})`
+  flex: 1;
+  width: 100%;
+  padding: 0 ${widthPercentageToDp(5)}px;
+  flex-direction: column;
 `;

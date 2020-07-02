@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DetailsText, DetailsTitle } from '../styles';
+import { DetailsText, DetailsTitle, PageContainer } from '../styles';
 import {
   AppearsBox,
   BottomContent,
@@ -7,7 +7,6 @@ import {
   CardWrapper,
   InfoAboutBlock,
   InfoAboutContainer,
-  PageContainer,
   PokemonVersion,
   PokemonVersionText,
 } from './style';

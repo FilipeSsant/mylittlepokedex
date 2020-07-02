@@ -13,7 +13,7 @@ export const Main = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isButtonLoading, setIsButtonLoading] = useState(false);
 
-  const limitDefault = 10;
+  const limitDefault = 30;
 
   const [offset, setOffset] = useState(1);
   const [limit, setLimit] = useState(limitDefault);

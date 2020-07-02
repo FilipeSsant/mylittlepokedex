@@ -9,17 +9,6 @@ type PokemonVersionProps = {
   version: string;
 };
 
-export const PageContainer = styled.ScrollView.attrs({
-  containerContentStyle: {
-    alignItems: 'center',
-  },
-})`
-  flex: 1;
-  width: 100%;
-  padding: 0 ${widthPercentageToDp(5)}px;
-  flex-direction: column;
-`;
-
 export const CardWrapper = styled.View`
   background-color: ${({ theme }) => theme.secondaryBackground};
   width: ${widthPercentageToDp(90)}px;
