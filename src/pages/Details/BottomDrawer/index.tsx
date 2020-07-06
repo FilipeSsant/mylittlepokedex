@@ -14,6 +14,7 @@ import {
   Tabs,
   TabText,
 } from './styles';
+import { SharedElement } from 'react-navigation-shared-element';
 
 type Props = {
   pokemonData: any;
@@ -28,6 +29,7 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
     abilities,
     game_indices,
     stats,
+    name,
   } = pokemonData.pokemon;
 
   const [actualPageIndex, onChangeDrawerPage] = useState(0);
@@ -49,8 +51,6 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
     },
   ];
 
-  const drawerAnim = useRef(new Animated.Value(0)).current;
-
   const onPageSelected = useCallback(
     (e) => {
       onChangeDrawerPage(e.nativeEvent.position);
@@ -58,33 +58,12 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
     [actualPageIndex]
   );
 
-  const transformAnimation = useCallback(() => {
-    return Animated.timing(drawerAnim, {
-      toValue: 1,
-      duration: 400,
-      easing: Easing.inOut(Easing.ease),
-    }).start();
-  }, [drawerAnim]);
-
-  const drawerStyle = {
-    transform: [
-      {
-        translateY: drawerAnim.interpolate({
-          inputRange: [0, 1],
-          outputRange: [heightPercentageToDp(30), 0],
-        }),
-      },
-    ],
-  };
-
-  useEffect(() => {
-    transformAnimation();
-  }, []);
-
   return (
-    <DetailsDrawer style={drawerStyle}>
+    <DetailsDrawer>
       <PokemonImageBox>
-        <PokemonImage resizeMode="contain" source={{ uri }} />
+        <SharedElement style={{ zIndex: 2 }} id={`item.${name}.photo`}>
+          <PokemonImage resizeMode="contain" source={{ uri }} />
+        </SharedElement>
         <PokeballIcon />
       </PokemonImageBox>
       <Tabs>

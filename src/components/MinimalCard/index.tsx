@@ -12,6 +12,7 @@ import {
   PokemonImage,
   TitleBox,
 } from './styles';
+import { SharedElement } from 'react-navigation-shared-element';
 
 type Pokemon = {
   id: number;
@@ -60,12 +61,14 @@ export const MinimalCard: React.memo<Pokemon> = ({
         </PillBox>
       </InfoBox>
       <ImageBox>
-        <PokemonImage
-          resizeMode="contain"
-          source={{
-            uri: `https://pokeres.bastionbot.org/images/pokemon/${id}.png`,
-          }}
-        />
+        <SharedElement id={`item.${name}.photo`}>
+          <PokemonImage
+            resizeMode="contain"
+            source={{
+              uri: `https://pokeres.bastionbot.org/images/pokemon/${id}.png`,
+            }}
+          />
+        </SharedElement>
       </ImageBox>
     </Card>
   );
