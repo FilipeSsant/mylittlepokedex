@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { Text, View } from 'react-native';
 import Animated, { Easing } from 'react-native-reanimated';
 import { heightPercentageToDp } from 'utils/percentageToDp';
@@ -30,7 +30,6 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
     stats,
   } = pokemonData.pokemon;
 
-  const [drawerAnim] = useState(new Animated.Value(0));
   const [actualPageIndex, onChangeDrawerPage] = useState(0);
   const tabsInfo = [
     {
@@ -45,15 +44,12 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
     },
     {
       id: 3,
-      name: 'Evolution',
-      onClick: () => {},
-    },
-    {
-      id: 4,
       name: 'Moves',
       onClick: () => {},
     },
   ];
+
+  const drawerAnim = useRef(new Animated.Value(0)).current;
 
   const onPageSelected = useCallback(
     (e) => {
@@ -111,9 +107,6 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
           <BaseStats pokemonType={predominantType} stats={stats} />
         </View>
         <View key="3">
-          <Text>Evolution page</Text>
-        </View>
-        <View key="4">
           <Text>Moves page</Text>
         </View>
       </DrawerViewPager>
