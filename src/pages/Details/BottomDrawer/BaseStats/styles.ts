@@ -12,7 +12,7 @@ export const StatItem = styled.View`
 `;
 
 export const StatGraphicBarBox = styled.View`
-  background-color: ${({ theme }) => theme.colors.grayF0};
+  background-color: ${({ theme }) => theme.grayF0};
   border-radius: 100px;
   margin-left: ${widthPercentageToDp(4)}px;
   height: ${heightPercentageToDp(0.8)}px;
@@ -20,6 +20,7 @@ export const StatGraphicBarBox = styled.View`
 `;
 
 type StatGraphicBarProps = {
+  size: number;
   pokemonType: string;
 };
 

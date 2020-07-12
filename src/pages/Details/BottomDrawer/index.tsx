@@ -14,14 +14,14 @@ import {
 } from './styles';
 import { SharedElement } from 'react-navigation-shared-element';
 import { ViewPagerProps } from '@react-native-community/viewpager';
-import { Moves } from './Moves';
 
 type Props = {
-  data: any;
+  pokemonData: any;
 };
 
-export const BottomDrawer: React.SFC<Props> = ({ data }) => {
-  const { uri, name, predominantType } = data;
+export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
+  const { predominantType } = pokemonData;
+  const { uri, stats, name } = pokemonData.pokemon;
 
   const viewPagerRef = useRef<ViewPagerProps>();
 
@@ -79,13 +79,17 @@ export const BottomDrawer: React.SFC<Props> = ({ data }) => {
       </Tabs>
       <DrawerViewPager ref={viewPagerRef} onPageSelected={onPageSelected}>
         <View key="1">
-          <AboutPage pokemon={data} />
+          <AboutPage pokemon={pokemonData.pokemon} />
         </View>
         <View key="2">
-          <BaseStats animate={actualPageIndex === 1} pokemon={data} />
+          <BaseStats
+            animate={actualPageIndex === 1}
+            pokemonType={predominantType}
+            stats={stats}
+          />
         </View>
         <View key="3">
-          <Moves pokemon={data} />
+          <Text>Moves page</Text>
         </View>
       </DrawerViewPager>
     </DetailsDrawer>

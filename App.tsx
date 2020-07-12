@@ -27,7 +27,7 @@ export const App: React.SFC<Props> = () => {
         <StatusBar
           translucent
           barStyle="dark-content"
-          backgroundColor={globalTheme.colors.background}
+          backgroundColor={globalTheme.background}
         />
         <ThemeProvider theme={globalTheme}>
           <Routes />

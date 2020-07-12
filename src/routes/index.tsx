@@ -33,7 +33,7 @@ export const Routes = () => {
             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
           }}
           sharedElementsConfig={(route) => {
-            const { name } = route.params;
+            const { name } = route.params.pokemon;
             return [{ id: `item.${name}.photo` }];
           }}
         />

@@ -13,14 +13,21 @@ import {
   TitleBox,
 } from './styles';
 import { SharedElement } from 'react-navigation-shared-element';
+import { Text } from 'react-native';
 
 type Pokemon = {
-  pokemon: any;
+  id: number;
+  name: string;
+  types: any;
   navigation: any;
 };
 
-export const MinimalCard: React.memo<Pokemon> = ({ pokemon, navigation }) => {
-  const { types, name, uri } = pokemon;
+export const MinimalCard: React.memo<Pokemon> = ({
+  id,
+  pokemon,
+  navigation,
+}) => {
+  const { types, name } = pokemon;
   const predominantType = types[0].type.name;
 
   return (
@@ -29,8 +36,10 @@ export const MinimalCard: React.memo<Pokemon> = ({ pokemon, navigation }) => {
       type={predominantType}
       onPress={() =>
         navigation.navigate('Details', {
-          ...pokemon,
-          uri,
+          pokemon: {
+            ...pokemon,
+            uri: `https://pokeres.bastionbot.org/images/pokemon/${id}.png`,
+          },
           predominantType,
         })
       }
@@ -58,7 +67,7 @@ export const MinimalCard: React.memo<Pokemon> = ({ pokemon, navigation }) => {
           <PokemonImage
             resizeMode="contain"
             source={{
-              uri,
+              uri: `https://pokeres.bastionbot.org/images/pokemon/${id}.png`,
             }}
           />
         </SharedElement>
