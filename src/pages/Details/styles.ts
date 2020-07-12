@@ -20,7 +20,7 @@ export const DetailsHeader = styled.View`
 
 export const PokemonName = styled.Text`
   text-transform: capitalize;
-  color: ${({ theme }) => theme.whiteFA};
+  color: ${({ theme }) => theme.colors.whiteFA};
   font-family: ${({ theme }) => theme.font.bold};
   font-size: ${widthPercentageToDp(8)}px;
 `;
@@ -34,7 +34,7 @@ export const Pill = styled.View`
   background-color: red;
   border-radius: 100px;
   width: ${widthPercentageToDp(25)}px;
-  background-color: ${({ theme }) => hexToRgba(theme.whiteFA, 0.1)};
+  background-color: ${({ theme }) => hexToRgba(theme.colors.whiteFA, 0.1)};
   margin-right: ${widthPercentageToDp(3)}px;
 `;
 
@@ -43,5 +43,5 @@ export const PillText = styled.Text`
   font-size: ${widthPercentageToDp(3.5)}px;
   padding: ${widthPercentageToDp(2)}px;
   text-transform: capitalize;
-  color: ${({ theme }) => theme.whiteFA};
+  color: ${({ theme }) => theme.colors.whiteFA};
 `;

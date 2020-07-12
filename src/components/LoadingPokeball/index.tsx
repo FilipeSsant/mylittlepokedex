@@ -8,7 +8,7 @@ type Props = { size?: number; color?: string };
 
 export const LoadingPokeball: React.SFC<Props> = ({
   size = 140,
-  color = globalTheme.grayF2,
+  color = globalTheme.colors.grayF2,
 }) => {
   const [rotateAnim] = useState(new Animated.Value(0));
 

@@ -9,18 +9,18 @@ type TextButtonProps = {
 const checkFontType = (theme, type) => {
   switch (type) {
     case 'light':
-      return theme.whiteFA;
+      return theme.colors.whiteFA;
     case 'dark':
-      return theme.defaultFont;
+      return theme.colors.defaultFont;
     default:
-      return theme.whiteFA;
+      return theme.colors.whiteFA;
   }
 };
 
 export const BaseButton = styled.TouchableOpacity<BaseButtonProps>`
   background-color: ${({ theme, type, disabled }) => {
-    if (disabled) return theme.grayD1;
-    return type ? theme[type] : theme.primary;
+    if (disabled) return theme.colors.grayD1;
+    return type ? theme[type] : theme.colors.primary;
   }};
   justify-content: center;
   align-items: center;

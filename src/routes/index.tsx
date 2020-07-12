@@ -13,7 +13,7 @@ const Stack = createSharedElementStackNavigator();
 
 const navigatorOptions = {
   headerStyle: {
-    backgroundColor: globalTheme.background,
+    backgroundColor: globalTheme.colors.background,
     elevation: 0,
     shadowOpacity: 0,
   },
