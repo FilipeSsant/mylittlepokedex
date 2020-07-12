@@ -82,7 +82,11 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
           <AboutPage pokemon={pokemonData.pokemon} />
         </View>
         <View key="2">
-          <BaseStats pokemonType={predominantType} stats={stats} />
+          <BaseStats
+            animate={actualPageIndex === 1}
+            pokemonType={predominantType}
+            stats={stats}
+          />
         </View>
         <View key="3">
           <Text>Moves page</Text>

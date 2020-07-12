@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { DetailsText, PageContainer } from '../styles';
 import {
   AditionalStatNumber,
@@ -6,19 +6,50 @@ import {
   StatGraphicBarBox,
   StatItem,
 } from './styles';
+import { Animated } from 'react-native';
 
 type AboutPageProps = {
   pokemonType: string;
   stats: any;
+  animate: boolean;
 };
 
 export const BaseStats: React.SFC<AboutPageProps> = ({
   pokemonType,
   stats,
+  animate = false,
 }) => {
-  React.useEffect(() => {
-    console.log('stats', stats);
-  }, []);
+  const graphicBarAnim = useRef(new Animated.Value(0)).current;
+  const plusStatAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    if (animate)
+      Animated.sequence([
+        Animated.timing(graphicBarAnim, {
+          toValue: 1,
+          duration: 800,
+          useNativeDriver: false,
+        }),
+        Animated.timing(plusStatAnim, {
+          toValue: 1,
+          duration: 300,
+          useNativeDriver: false,
+        }),
+      ]).start();
+  }, [animate]);
+
+  const progressBarWidth = (actualWidth) =>
+    graphicBarAnim.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0%', `${actualWidth}%`],
+      extrapolate: 'clamp',
+    });
+
+  const plusStatStyle = plusStatAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 1],
+    extrapolate: 'clamp',
+  });
 
   return (
     <PageContainer>
@@ -31,11 +62,19 @@ export const BaseStats: React.SFC<AboutPageProps> = ({
           <StatGraphicBarBox>
             <StatGraphicBar
               pokemonType={pokemonType}
-              size={obj.base_stat > 100 ? 100 : obj.base_stat}
+              style={{
+                width: progressBarWidth(
+                  obj.base_stat > 100 ? 100 : obj.base_stat
+                ),
+              }}
             />
           </StatGraphicBarBox>
           {obj.base_stat > 100 && (
-            <AditionalStatNumber>+{obj.base_stat - 100}</AditionalStatNumber>
+            <AditionalStatNumber
+              style={{ transform: [{ scale: plusStatStyle }] }}
+            >
+              +{obj.base_stat - 100}
+            </AditionalStatNumber>
           )}
         </StatItem>
       ))}

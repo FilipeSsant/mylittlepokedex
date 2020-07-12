@@ -1,3 +1,4 @@
+import { Animated } from 'react-native';
 import styled from 'styled-components/native';
 import {
   heightPercentageToDp,
@@ -23,7 +24,7 @@ type StatGraphicBarProps = {
   pokemonType: string;
 };
 
-export const StatGraphicBar = styled.View<StatGraphicBarProps>`
+export const StatGraphicBar = styled(Animated.View)<StatGraphicBarProps>`
   flex: 1;
   background-color: ${({ theme, pokemonType }) =>
     theme.pokemon.type[pokemonType]};
@@ -31,7 +32,7 @@ export const StatGraphicBar = styled.View<StatGraphicBarProps>`
   width: ${({ size }) => `${size}%`};
 `;
 
-export const AditionalStatNumber = styled.Text`
+export const AditionalStatNumber = styled(Animated.Text)`
   font-size: ${widthPercentageToDp(3)}px;
   margin-left: ${widthPercentageToDp(1)}px;
   color: ${({ theme }) => theme.green4F};
