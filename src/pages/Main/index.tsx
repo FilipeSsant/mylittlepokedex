@@ -1,6 +1,5 @@
 import { getAll } from 'api/pokemon.db';
 import { ButtonStyled } from 'components/Button';
-import { Input } from 'components/Input';
 import { LoadingPokeball } from 'components/LoadingPokeball';
 import { MinimalCard } from 'components/MinimalCard';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -47,7 +46,13 @@ export const Main = ({ navigation }) => {
     if (item) {
       const pokemonId = index + 1;
       return (
-        <MinimalCard id={pokemonId} pokemon={item} navigation={navigation} />
+        <MinimalCard
+          pokemon={{
+            ...item,
+            uri: `https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`,
+          }}
+          navigation={navigation}
+        />
       );
     }
   };
