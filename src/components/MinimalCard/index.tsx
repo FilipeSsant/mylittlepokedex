@@ -13,6 +13,7 @@ import {
   TitleBox,
 } from './styles';
 import { SharedElement } from 'react-navigation-shared-element';
+import { Text } from 'react-native';
 
 type Pokemon = {
   id: number;
@@ -28,6 +29,7 @@ export const MinimalCard: React.memo<Pokemon> = ({
 }) => {
   const { types, name } = pokemon;
   const predominantType = types[0].type.name;
+
   return (
     <Card
       activeOpacity={0.7}

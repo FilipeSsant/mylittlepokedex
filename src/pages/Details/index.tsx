@@ -70,8 +70,8 @@ export const Details: React.SFC<DetailsProps> = ({
             <PokemonName>{name}</PokemonName>
             <PillTypeBox>
               {types &&
-                types.map((obj, index) => (
-                  <Pill type={predominantType} key={`${name}${obj.type.name}`}>
+                types.map((obj) => (
+                  <Pill key={`${name}${obj.type.name}`}>
                     <PillText>{obj.type.name}</PillText>
                   </Pill>
                 ))}

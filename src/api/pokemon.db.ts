@@ -10,8 +10,13 @@ export const getAll = async (offset: number, limit: number): Promise<any> => {
   const pokemonPromises = [];
   console.log('offset', offset, 'limit', limit);
   for (let i = offset; i <= limit + 1; i++) {
-    const pokemons = await getUnique(i);
-    pokemonPromises.push(pokemons);
+    const pokemon = await getUnique(i);
+    if (pokemon.species) {
+      const { url } = pokemon.species;
+      await api
+        .get(url)
+        .then((res) => pokemonPromises.push({ ...res.data, ...pokemon }));
+    }
   }
   return pokemonPromises;
 };

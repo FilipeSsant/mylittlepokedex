@@ -7,6 +7,7 @@ import {
 export const Title = styled.Text`
   font-size: ${widthPercentageToDp(8)}px;
   font-family: ${({ theme }) => theme.font.bold};
+  margin-bottom: ${heightPercentageToDp(3)}px;
 `;
 
 export const PokemonsBox = styled.FlatList.attrs({

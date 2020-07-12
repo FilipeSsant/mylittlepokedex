@@ -11,6 +11,8 @@ export const globalTheme = {
   grayD1: '#d1d1d1',
   grayC7: '#c7c8c8',
   green4F: '#4fab4f',
+  blue3F2: '#5793f2',
+  pink83: '#eb6083',
   font: {
     light: `${defaultFontName}-Light`,
     semiBold: `${defaultFontName}-SemiBold`,

@@ -80,7 +80,7 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
       </Tabs>
       <DrawerViewPager onPageSelected={onPageSelected}>
         <View key="1">
-          <AboutPage pokemon={{ height, weight, abilities, game_indices }} />
+          <AboutPage pokemon={pokemonData.pokemon} />
         </View>
         <View key="2">
           <BaseStats pokemonType={predominantType} stats={stats} />

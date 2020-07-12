@@ -44,10 +44,12 @@ export const Main = ({ navigation }) => {
   };
 
   const renderCard = ({ item, index }) => {
-    const pokemonId = index + 1;
-    return (
-      <MinimalCard id={pokemonId} pokemon={item} navigation={navigation} />
-    );
+    if (item) {
+      const pokemonId = index + 1;
+      return (
+        <MinimalCard id={pokemonId} pokemon={item} navigation={navigation} />
+      );
+    }
   };
 
   const footerComponent = () => {
@@ -69,9 +71,6 @@ export const Main = ({ navigation }) => {
   return (
     <Container>
       <Title>Pokedex</Title>
-      <SearchBox>
-        <Input placeholder="Digite um pokémon" />
-      </SearchBox>
       {isLoading ? (
         <LoadingContainer>
           <LoadingPokeball />

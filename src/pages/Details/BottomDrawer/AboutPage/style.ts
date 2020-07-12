@@ -1,9 +1,11 @@
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import hexToRgba from 'hex-to-rgba';
 import styled from 'styled-components/native';
 import {
   heightPercentageToDp,
   widthPercentageToDp,
 } from 'utils/percentageToDp';
+import { DetailsText } from '../styles';
 
 type PokemonVersionProps = {
   version: string;
@@ -22,6 +24,18 @@ export const CardBlock = styled.View`
   padding: ${widthPercentageToDp(5)}px;
 `;
 
+export const TopContent = styled.View`
+  width: 100%;
+  margin: ${heightPercentageToDp(3)}px 0;
+`;
+
+export const TopText = styled(DetailsText)`
+  flex: 1;
+  text-transform: lowercase;
+  text-align: center;
+  line-height: ${heightPercentageToDp(3)}px;
+`;
+
 export const BottomContent = styled.View`
   width: 100%;
   margin-top: ${heightPercentageToDp(3)}px;
@@ -36,23 +50,24 @@ export const InfoAboutBlock = styled.View`
   padding-bottom: ${heightPercentageToDp(1)}px;
 `;
 
-export const AppearsBox = styled.View`
-  margin-top: ${heightPercentageToDp(1)}px;
+export const GenderBlock = styled.View`
   flex-direction: row;
-  flex-wrap: wrap;
+  align-items: center;
+  margin-right: ${widthPercentageToDp(2)}px;
 `;
 
-export const PokemonVersion = styled.View<PokemonVersionProps>`
-  background-color: ${({ theme, version }) =>
-    hexToRgba(theme.pokemon.generation[version], 0.7)};
-  border-radius: 6px;
-  margin-right: ${widthPercentageToDp(1)}px;
-  margin-bottom: ${heightPercentageToDp(1)}px;
-  align-self: flex-start;
+export const FemaleIcon = styled(MaterialCommunityIcons).attrs({
+  name: 'gender-female',
+  size: 15,
+})`
+  color: ${({ theme }) => theme.blue3F2};
+  padding-right: ${widthPercentageToDp(1)}px;
 `;
 
-export const PokemonVersionText = styled.Text`
-  text-transform: capitalize;
-  text-align: center;
-  padding: ${widthPercentageToDp(1)}px ${widthPercentageToDp(5)}px;
+export const MaleIcon = styled(MaterialCommunityIcons).attrs({
+  name: 'gender-male',
+  size: 15,
+})`
+  color: ${({ theme }) => theme.pink83};
+  padding-right: ${widthPercentageToDp(1)}px;
 `;

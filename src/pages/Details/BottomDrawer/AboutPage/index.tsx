@@ -1,33 +1,41 @@
 import React, { useState } from 'react';
 import { DetailsText, DetailsTitle, PageContainer } from '../styles';
 import {
-  AppearsBox,
+  TopContent,
+  TopText,
   BottomContent,
   CardBlock,
   CardWrapper,
   InfoAboutBlock,
   InfoAboutContainer,
-  PokemonVersion,
-  PokemonVersionText,
+  GenderBlock,
+  FemaleIcon,
+  MaleIcon,
 } from './style';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 type AboutPageProps = {
   pokemon: any;
 };
 
 export const AboutPage: React.SFC<AboutPageProps> = ({ pokemon }) => {
-  const { height, weight, abilities, game_indices } = pokemon;
+  const {
+    height,
+    weight,
+    abilities,
+    egg_groups,
+    flavor_text_entries,
+    gender_rate,
+  } = pokemon;
   const [pokemonAbilities, setPokemonAbilities] = useState('');
+  const [eggGroups, setEggGroups] = useState('');
   const pokemonHeight = height * 10;
   const pokemonWeight = weight / 10;
 
-  const convertGameVersionString = (value) => {
-    let baseString: string = value.toLowerCase();
-    const regexTrace = /[-]/;
-    if (regexTrace.test(baseString)) {
-      baseString = baseString.split(regexTrace)[0];
-    }
-    return baseString;
+  // gender_rate: chance to be female in eighten
+  const genderRate = {
+    male: `${((8 - gender_rate) / 8) * 100}%`,
+    female: `${(gender_rate / 8) * 100}%`,
   };
 
   React.useEffect(() => {
@@ -38,10 +46,22 @@ export const AboutPage: React.SFC<AboutPageProps> = ({ pokemon }) => {
         })
         .join(', ')
     );
+    setEggGroups(
+      egg_groups
+        .map((obj) => {
+          return obj.name;
+        })
+        .join(', ')
+    );
   }, []);
 
   return (
     <PageContainer>
+      <TopContent>
+        <TopText>
+          {flavor_text_entries[0].flavor_text.replace(/\n/g, ' ')}
+        </TopText>
+      </TopContent>
       <CardWrapper>
         <CardBlock>
           <DetailsText topic>Height</DetailsText>
@@ -59,20 +79,20 @@ export const AboutPage: React.SFC<AboutPageProps> = ({ pokemon }) => {
             <DetailsText topic>Abilities</DetailsText>
             <DetailsText>{pokemonAbilities}</DetailsText>
           </InfoAboutBlock>
-          <InfoAboutBlock style={{ flexDirection: 'column' }}>
-            <DetailsText topic>Appears In</DetailsText>
-            <AppearsBox>
-              {game_indices.map((gameIndice) => (
-                <PokemonVersion
-                  version={convertGameVersionString(gameIndice.version.name)}
-                  key={`${gameIndice.game_index}${gameIndice.version.name}`}
-                >
-                  <PokemonVersionText>
-                    {gameIndice.version.name}
-                  </PokemonVersionText>
-                </PokemonVersion>
-              ))}
-            </AppearsBox>
+          <InfoAboutBlock>
+            <DetailsText topic>Gender rate</DetailsText>
+            <GenderBlock>
+              <FemaleIcon />
+              <DetailsText>{genderRate.female}</DetailsText>
+            </GenderBlock>
+            <GenderBlock>
+              <MaleIcon />
+              <DetailsText>{genderRate.male}</DetailsText>
+            </GenderBlock>
+          </InfoAboutBlock>
+          <InfoAboutBlock>
+            <DetailsText topic>Egg groups</DetailsText>
+            <DetailsText>{eggGroups}</DetailsText>
           </InfoAboutBlock>
         </InfoAboutContainer>
       </BottomContent>
