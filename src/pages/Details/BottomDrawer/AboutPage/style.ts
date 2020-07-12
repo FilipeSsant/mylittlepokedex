@@ -12,7 +12,7 @@ type PokemonVersionProps = {
 };
 
 export const CardWrapper = styled.View`
-  background-color: ${({ theme }) => theme.colors.secondaryBackground};
+  background-color: ${({ theme }) => theme.secondaryBackground};
   width: ${widthPercentageToDp(90)}px;
   height: ${heightPercentageToDp(10)}px;
   border-radius: 6px;
@@ -60,7 +60,7 @@ export const FemaleIcon = styled(MaterialCommunityIcons).attrs({
   name: 'gender-female',
   size: 15,
 })`
-  color: ${({ theme }) => theme.colors.blue3F2};
+  color: ${({ theme }) => theme.blue3F2};
   padding-right: ${widthPercentageToDp(1)}px;
 `;
 
@@ -68,6 +68,6 @@ export const MaleIcon = styled(MaterialCommunityIcons).attrs({
   name: 'gender-male',
   size: 15,
 })`
-  color: ${({ theme }) => theme.colors.pink83};
+  color: ${({ theme }) => theme.pink83};
   padding-right: ${widthPercentageToDp(1)}px;
 `;

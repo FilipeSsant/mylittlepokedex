@@ -41,7 +41,7 @@ export const Details: React.SFC<DetailsProps> = ({
           <BackClickable onPress={() => navigation.goBack()}>
             <MaterialCommunityIcons
               name="chevron-left"
-              color={globalTheme.colors.whiteFA}
+              color={globalTheme.whiteFA}
               size={35}
             />
           </BackClickable>

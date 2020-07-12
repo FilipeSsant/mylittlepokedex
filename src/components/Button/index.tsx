@@ -23,11 +23,11 @@ export const ButtonStyled: React.SFC<BaseButtonProps> = ({
   const checkFontType = (type) => {
     switch (type) {
       case 'light':
-        return globalTheme.colors.whiteFA;
+        return globalTheme.whiteFA;
       case 'dark':
-        return globalTheme.colors.defaultFont;
+        return globalTheme.defaultFont;
       default:
-        return globalTheme.colors.whiteFA;
+        return globalTheme.whiteFA;
     }
   };
 

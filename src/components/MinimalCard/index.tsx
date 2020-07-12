@@ -38,7 +38,7 @@ export const MinimalCard: React.memo<Pokemon> = ({ pokemon, navigation }) => {
       <IconBox>
         <MaterialCommunityIcons
           name="pokeball"
-          color={globalTheme.colors.grayF2}
+          color={globalTheme.grayF2}
           size={140}
         />
       </IconBox>

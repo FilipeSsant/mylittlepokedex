@@ -34,5 +34,5 @@ export const StatGraphicBar = styled(Animated.View)<StatGraphicBarProps>`
 export const AditionalStatNumber = styled(Animated.Text)`
   font-size: ${widthPercentageToDp(3)}px;
   margin-left: ${widthPercentageToDp(1)}px;
-  color: ${({ theme }) => theme.colors.green4F};
+  color: ${({ theme }) => theme.green4F};
 `;

@@ -18,7 +18,7 @@ export const PokemonImageBox = styled.View`
 
 export const PokeballIcon = styled(MaterialCommunityIcons).attrs({
   name: 'pokeball',
-  color: globalTheme.colors.whiteFA,
+  color: globalTheme.whiteFA,
   size: 250,
 })`
   z-index: 1;
@@ -36,7 +36,7 @@ export const PokemonImage = styled.Image`
 export const DetailsDrawer = styled(Animated.View)`
   position: relative;
   flex: 1;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.background};
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 `;
@@ -63,7 +63,7 @@ type TabTextProps = {
 
 export const TabText = styled.Text<TabTextProps>`
   color: ${({ isActive, theme, pokemonType }) =>
-    isActive ? theme.pokemon.type[pokemonType] : theme.colors.grayC7};
+    isActive ? theme.pokemon.type[pokemonType] : theme.grayC7};
   font-family: ${({ theme }) => theme.font.semiBold};
 `;
 
@@ -78,7 +78,7 @@ type DetailsTextProps = {
 export const DetailsText = styled.Text<DetailsTextProps>`
   font-size: ${widthPercentageToDp(3.5)}px;
   text-transform: capitalize;
-  color: ${({ theme }) => theme.colors.defaultFont};
+  color: ${({ theme }) => theme.defaultFont};
   ${({ topic, topicWidth }) =>
     topic &&
     css`
@@ -94,7 +94,7 @@ export const DetailsText = styled.Text<DetailsTextProps>`
 
 export const DetailsTitle = styled.Text`
   font-size: ${widthPercentageToDp(4.5)}px;
-  color: ${({ theme }) => theme.colors.defaultFont};
+  color: ${({ theme }) => theme.defaultFont};
   font-family: 'OpenSans-Bold';
 `;
 
