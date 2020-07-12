@@ -21,7 +21,7 @@ export const DetailsHeader = styled.View`
 export const PokemonName = styled.Text`
   text-transform: capitalize;
   color: ${({ theme }) => theme.colors.whiteFA};
-  font-family: ${({ theme }) => theme.colors.font.bold};
+  font-family: ${({ theme }) => theme.font.bold};
   font-size: ${widthPercentageToDp(8)}px;
 `;
 

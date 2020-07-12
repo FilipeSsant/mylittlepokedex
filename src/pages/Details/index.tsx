@@ -24,8 +24,7 @@ export const Details: React.SFC<DetailsProps> = ({
   navigation,
   route: { params },
 }) => {
-  const { predominantType } = params;
-  const { name, types } = params.pokemon;
+  const { name, types, predominantType } = params;
 
   const setHeaderConfiguration = useCallback(async () => {
     navigation.setOptions({
@@ -77,7 +76,7 @@ export const Details: React.SFC<DetailsProps> = ({
                 ))}
             </PillTypeBox>
           </DetailsHeader>
-          <BottomDrawer pokemonData={params} />
+          <BottomDrawer data={params} />
         </DetailsBody>
       </Container>
     </>

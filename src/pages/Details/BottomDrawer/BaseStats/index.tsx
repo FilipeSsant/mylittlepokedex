@@ -9,16 +9,16 @@ import {
 import { Animated } from 'react-native';
 
 type AboutPageProps = {
-  pokemonType: string;
-  stats: any;
+  pokemon: any;
   animate: boolean;
 };
 
 export const BaseStats: React.SFC<AboutPageProps> = ({
-  pokemonType,
-  stats,
+  pokemon,
   animate = false,
 }) => {
+  const { stats, predominantType } = pokemon;
+
   const graphicBarAnim = useRef(new Animated.Value(0)).current;
   const plusStatAnim = useRef(new Animated.Value(0)).current;
 
@@ -61,7 +61,7 @@ export const BaseStats: React.SFC<AboutPageProps> = ({
           <DetailsText normalTextWidth={8}>{obj.base_stat}</DetailsText>
           <StatGraphicBarBox>
             <StatGraphicBar
-              pokemonType={pokemonType}
+              pokemonType={predominantType}
               style={{
                 width: progressBarWidth(
                   obj.base_stat > 100 ? 100 : obj.base_stat

@@ -12,7 +12,7 @@ export const Container = styled.View<ContainerProps>`
   background-color: ${({ backgroundType, theme }) =>
     backgroundType
       ? hexToRgba(theme.pokemon.type[backgroundType], 0.9)
-      : theme.background};
+      : theme.colors.background};
   padding: 0 ${widthPercentageToDp(5)}px;
   ${({ noPadding }) =>
     noPadding &&
