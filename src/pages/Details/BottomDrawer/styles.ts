@@ -45,12 +45,13 @@ export const DrawerViewPager = styled(ViewPager)`
   flex: 1;
 `;
 
-export const Tabs = styled.View`
+export const Tabs = styled.TouchableOpacity`
   flex-direction: row;
   justify-content: space-between;
   height: ${heightPercentageToDp(5)}px;
   margin: ${heightPercentageToDp(5)}px ${widthPercentageToDp(5)}px 0
     ${widthPercentageToDp(5)}px;
+  z-index: 3;
 `;
 
 export const Tab = styled.TouchableOpacity``;

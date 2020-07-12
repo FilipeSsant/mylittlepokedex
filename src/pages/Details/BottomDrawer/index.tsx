@@ -1,7 +1,5 @@
-import React, { useCallback, useEffect, useState, useRef } from 'react';
+import React, { useCallback, useState, useRef } from 'react';
 import { Text, View } from 'react-native';
-import Animated, { Easing } from 'react-native-reanimated';
-import { heightPercentageToDp } from 'utils/percentageToDp';
 import { AboutPage } from './AboutPage';
 import { BaseStats } from './BaseStats';
 import {
@@ -15,6 +13,7 @@ import {
   TabText,
 } from './styles';
 import { SharedElement } from 'react-navigation-shared-element';
+import { ViewPagerProps } from '@react-native-community/viewpager';
 
 type Props = {
   pokemonData: any;
@@ -22,32 +21,27 @@ type Props = {
 
 export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
   const { predominantType } = pokemonData;
-  const {
-    uri,
-    height,
-    weight,
-    abilities,
-    game_indices,
-    stats,
-    name,
-  } = pokemonData.pokemon;
+  const { uri, stats, name } = pokemonData.pokemon;
+
+  const viewPagerRef = useRef<ViewPagerProps>();
 
   const [actualPageIndex, onChangeDrawerPage] = useState(0);
+
   const tabsInfo = [
     {
       id: 1,
       name: 'About',
-      onClick: () => {},
+      slideRef: 0,
     },
     {
       id: 2,
       name: 'Base Stats',
-      onClick: () => {},
+      slideRef: 1,
     },
     {
       id: 3,
       name: 'Moves',
-      onClick: () => {},
+      slideRef: 2,
     },
   ];
 
@@ -68,7 +62,12 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
       </PokemonImageBox>
       <Tabs>
         {tabsInfo.map((tab, index) => (
-          <Tab key={tab.id}>
+          <Tab
+            key={tab.id}
+            onPress={() => {
+              if (viewPagerRef) viewPagerRef.current.setPage(tab.slideRef);
+            }}
+          >
             <TabText
               pokemonType={predominantType}
               isActive={actualPageIndex === index}
@@ -78,7 +77,7 @@ export const BottomDrawer: React.SFC<Props> = ({ pokemonData }) => {
           </Tab>
         ))}
       </Tabs>
-      <DrawerViewPager onPageSelected={onPageSelected}>
+      <DrawerViewPager ref={viewPagerRef} onPageSelected={onPageSelected}>
         <View key="1">
           <AboutPage pokemon={pokemonData.pokemon} />
         </View>
