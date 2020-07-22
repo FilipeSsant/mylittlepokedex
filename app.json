@@ -6,6 +6,13 @@
     "slug": "my-little-pokedex",
     "version": "1.0.0",
     "platforms": ["ios", "android"],
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": ["**/*"],
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/res/splash.png",
+      "backgroundColor": "#FAFAFA",
+      "resizeMode": "contain"
+    }
   }
 }

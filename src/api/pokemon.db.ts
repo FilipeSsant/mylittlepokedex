@@ -8,7 +8,6 @@ export const getUnique = async (id: number): Promise<any> => {
 
 export const getAll = async (offset: number, limit: number): Promise<any> => {
   const pokemonPromises = [];
-  console.log('offset', offset, 'limit', limit);
   for (let i = offset; i <= limit + 1; i++) {
     const pokemon = await getUnique(i);
     if (pokemon.species) {

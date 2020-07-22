@@ -38,11 +38,6 @@ export const BottomDrawer: React.SFC<Props> = ({ data }) => {
       name: 'Base Stats',
       slideRef: 1,
     },
-    {
-      id: 3,
-      name: 'Moves',
-      slideRef: 2,
-    },
   ];
 
   const onPageSelected = useCallback(
@@ -83,9 +78,6 @@ export const BottomDrawer: React.SFC<Props> = ({ data }) => {
         </View>
         <View key="2">
           <BaseStats animate={actualPageIndex === 1} pokemon={data} />
-        </View>
-        <View key="3">
-          <Moves pokemon={data} />
         </View>
       </DrawerViewPager>
     </DetailsDrawer>
