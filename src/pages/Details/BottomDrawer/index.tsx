@@ -12,7 +12,6 @@ import {
   Tabs,
   TabText,
 } from './styles';
-import { SharedElement } from 'react-navigation-shared-element';
 import { ViewPagerProps } from '@react-native-community/viewpager';
 import { Moves } from './Moves';
 
@@ -50,9 +49,7 @@ export const BottomDrawer: React.SFC<Props> = ({ data }) => {
   return (
     <DetailsDrawer>
       <PokemonImageBox>
-        <SharedElement style={{ zIndex: 2 }} id={`item.${name}.photo`}>
-          <PokemonImage resizeMode="contain" source={{ uri }} />
-        </SharedElement>
+        <PokemonImage resizeMode="contain" source={{ uri }} />
         <PokeballIcon />
       </PokemonImageBox>
       <Tabs>

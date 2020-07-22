@@ -7,9 +7,8 @@ import { Details } from 'pages/Details';
 import { Main } from 'pages/Main';
 import * as React from 'react';
 import { globalTheme } from 'styles/theme';
-import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 
-const Stack = createSharedElementStackNavigator();
+const Stack = createStackNavigator();
 
 const navigatorOptions = {
   headerStyle: {
@@ -31,10 +30,6 @@ export const Routes = () => {
           component={Details}
           options={{
             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-          }}
-          sharedElementsConfig={(route) => {
-            const { name } = route.params;
-            return [{ id: `item.${name}.photo` }];
           }}
         />
       </Stack.Navigator>
