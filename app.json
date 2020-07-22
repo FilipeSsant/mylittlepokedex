@@ -13,6 +13,14 @@
       "image": "./assets/splash.png",
       "backgroundColor": "#FAFAFA",
       "resizeMode": "contain"
+    },
+    "ios": {
+      "bundleIdentifier": "com.filipessant.mylittlepokedex",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.filipessant.mylittlepokedex",
+      "versionCode": 1
     }
   }
 }
