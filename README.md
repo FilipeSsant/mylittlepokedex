@@ -2,7 +2,7 @@
 
 ## Link to launch in Expo (Link para rodar no Expo)
 
-[Expo Link](https://expo.io/@filipessant/my-little-pokedex)
+### [Expo Link](https://expo.io/@filipessant/my-little-pokedex)
 
 ## About (Sobre)
 
