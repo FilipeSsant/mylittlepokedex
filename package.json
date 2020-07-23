@@ -1,5 +1,5 @@
 {
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -13,17 +13,18 @@
     "@react-navigation/native": "^5.5.1",
     "@react-navigation/stack": "^5.5.1",
     "@use-expo/font": "^2.0.0",
+    "axios": "^0.19.2",
+    "expo": "^38.0.0",
     "expo-constants": "^9.1.1",
+    "expo-font": "^8.2.1",
     "expo-screen-orientation": "^1.1.1",
     "expo-splash-screen": "^0.3.1",
     "expo-updates": "~0.2.0",
-    "axios": "^0.19.2",
     "hex-to-rgba": "^2.0.1",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "^0.62.2",
     "react-native-gesture-handler": "^1.6.1",
-    "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^3.0.7",
     "react-native-screens": "^2.9.0",
     "react-native-unimodules": "~0.9.0",
@@ -31,16 +32,15 @@
     "react-navigation": "^4.4.0",
     "react-navigation-hooks": "^1.1.0",
     "react-navigation-stack": "^2.8.2",
-    "styled-components": "^5.1.1",
-    "expo": "^38.0.0"
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
     "babel-jest": "~25.2.6",
     "eslint": "^7.2.0",
+    "expo-cli": "^3.21.13",
     "jest": "~25.2.6",
-    "react-test-renderer": "~16.9.0",
-    "expo-cli": "^3.21.13"
+    "react-test-renderer": "~16.9.0"
   },
   "jest": {
     "preset": "react-native"

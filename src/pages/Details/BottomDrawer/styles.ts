@@ -1,6 +1,5 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ViewPager from '@react-native-community/viewpager';
-import Animated from 'react-native-reanimated';
 import styled, { css } from 'styled-components/native';
 import { globalTheme } from 'styles/theme';
 import {
@@ -33,7 +32,7 @@ export const PokemonImage = styled.Image`
   height: 100%;
 `;
 
-export const DetailsDrawer = styled(Animated.View)`
+export const DetailsDrawer = styled.View`
   position: relative;
   flex: 1;
   background-color: ${({ theme }) => theme.colors.background};
