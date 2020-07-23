@@ -8,6 +8,8 @@ Esse aplicativo foi feito para mostrar minhas habilidades com React Native usand
 
 ## Preview (Pré Visualização)
 
+![mylittlepokedexintro](https://github.com/FilipeSsant/mylittlepokedex/blob/master/assets/preview/intro.jpeg?raw=true)
+
 ## Link to launch in Expo (Link para rodar no Expo)
 
 [Expo Link](https://expo.io/@filipessant/my-little-pokedex)
