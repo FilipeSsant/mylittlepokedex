@@ -1,4 +1,4 @@
-# My Little Pokedex by Filipe
+# My Little Pokedex by Filipe, a React Native App
 
 ## Link to launch in Expo (Link para rodar no Expo)
 
@@ -10,11 +10,15 @@ Hi :)
 
 This app is made to show up my abilities with React Native using Expo to ease the publication and other things. **All resources used to develop here is used only for study.**
 
+This app show a listing of pokemons and their details, using [PokeApi](https://pokeapi.co) as API.
+
 ##
 
 Oi :)
 
 Esse aplicativo foi feito para mostrar minhas habilidades com React Native usando Expo para facilitar a publicação e outras coisas. **Todos os recursos utilizados aqui foram somente para estudo.**
+
+Esse aplicativo mostra uma listagem dos pokemons e seus detalhes, usando [PokeApi](https://pokeapi.co) como API.
 
 ## Preview (Pré Visualização)
 
